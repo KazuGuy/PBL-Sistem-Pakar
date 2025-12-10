@@ -1,0 +1,21 @@
+# Ignore Visual Studio cache
+.vs/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore build/cache/temp
+*.log
+temp/
+tmp/
+cache/
+
+# Ignore Composer vendor (jika ada)
+vendor/
+
+# Ignore environment files
+.env
+.env.*
+
+// Ignore Node (jika pakai)
+node_modules/
