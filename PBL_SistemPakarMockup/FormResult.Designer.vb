@@ -27,7 +27,7 @@ Partial Class FormResult
         ' FormResult
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
-        AutoScaleMode = AutoScaleMode.Font
+        AutoScaleMode = AutoScaleMode.None
         ClientSize = New Size(800, 450)
         Name = "FormResult"
         Text = "FormResult"

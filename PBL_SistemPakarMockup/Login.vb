@@ -16,7 +16,7 @@ Public Class Login
         End If
 
         Try
-            Using conn As SqlConnection = Connection()
+            Using conn As SqlConnection = DbConnect.Connection
 
                 Dim cmd As New SqlCommand("
                     SELECT id_user, nim, nama, prodi 
@@ -58,4 +58,12 @@ Public Class Login
 
     End Sub
 
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim registerForm As New Register()
+        registerForm.ShowDialog()
+    End Sub
+
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

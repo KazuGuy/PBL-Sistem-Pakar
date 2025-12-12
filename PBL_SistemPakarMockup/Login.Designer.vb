@@ -78,7 +78,7 @@ Partial Class Login
         ' 
         ' Button2
         ' 
-        Button2.Location = New Point(539, 394)
+        Button2.Location = New Point(539, 450)
         Button2.Name = "Button2"
         Button2.Size = New Size(204, 34)
         Button2.TabIndex = 9
@@ -87,7 +87,7 @@ Partial Class Login
         ' 
         ' Button3
         ' 
-        Button3.Location = New Point(504, 434)
+        Button3.Location = New Point(505, 522)
         Button3.Name = "Button3"
         Button3.Size = New Size(266, 34)
         Button3.TabIndex = 10
@@ -111,16 +111,15 @@ Partial Class Login
         PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
         PictureBox1.Location = New Point(-1, -3)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(382, 490)
+        PictureBox1.Size = New Size(382, 572)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 12
         PictureBox1.TabStop = False
         ' 
         ' Login
         ' 
-        AutoScaleDimensions = New SizeF(10F, 25F)
-        AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(825, 486)
+        AutoScaleMode = AutoScaleMode.None
+        ClientSize = New Size(825, 568)
         Controls.Add(PictureBox1)
         Controls.Add(Label1)
         Controls.Add(Button3)

@@ -3,24 +3,51 @@
 Module DbConnect
 
     Private ReadOnly ConnectionString As String =
-        "Data Source=(LocalDB)\MSSQLLocalDB;" & "AttachDbFilename=C:\Users\Sheva\source\repos\PBL_SistemPakarMockup\PBL_SistemPakarMockup\My Project\Database1.mdf;" & "Integrated Security=True;" & "Connect Timeout=30;" & "MultipleActiveResultSets=True;"    ' biar lebih stabil
+        "Data Source=(LocalDB)\MSSQLLocalDB;" &
+        "AttachDbFilename=C:\\PBL_Database\Database1.mdf;" &
+        "Integrated Security=True;" &
+        "Connect Timeout=30;" &
+        "MultipleActiveResultSets=True;"
 
-    Private _connection As SqlConnection
+    Private _conn As SqlConnection
 
     Public ReadOnly Property Connection As SqlConnection
         Get
-            If _connection Is Nothing Then
-                _connection = New SqlConnection(ConnectionString)
+            If _conn Is Nothing Then
+                _conn = New SqlConnection(ConnectionString)
             End If
 
-            If _connection.State = ConnectionState.Closed OrElse
-               _connection.State = ConnectionState.Broken Then
-
-                _connection.Open()
+            If _conn.State = ConnectionState.Closed OrElse
+               _conn.State = ConnectionState.Broken Then
+                _conn.Open()
             End If
 
-            Return _connection
+            Return _conn
         End Get
     End Property
 
+    Public Function GetPertanyaanList() As List(Of String)
+        Dim list As New List(Of String)
+
+        Try
+            Using conn As New SqlConnection(ConnectionString)
+                conn.Open()
+
+                Using cmd As New SqlCommand(
+                "SELECT teks_pertanyaan FROM pertanyaan ORDER BY id_pertanyaan", conn)
+
+                    Using rd = cmd.ExecuteReader()
+                        While rd.Read()
+                            list.Add(rd.GetString(0))
+                        End While
+                    End Using
+                End Using
+            End Using
+
+        Catch ex As Exception
+            MsgBox("Error mengambil pertanyaan: " & ex.Message)
+        End Try
+
+        Return list
+    End Function
 End Module

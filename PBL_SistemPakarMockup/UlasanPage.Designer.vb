@@ -27,7 +27,7 @@ Partial Class UlasanPage
         ' UlasanPage
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
-        AutoScaleMode = AutoScaleMode.Font
+        AutoScaleMode = AutoScaleMode.None
         ClientSize = New Size(872, 566)
         Name = "UlasanPage"
         Text = "UlasanPage"

@@ -38,7 +38,7 @@ Partial Class RiwayatPage
         ' RiwayatPage
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
-        AutoScaleMode = AutoScaleMode.Font
+        AutoScaleMode = AutoScaleMode.None
         ClientSize = New Size(800, 450)
         Controls.Add(Label1)
         Name = "RiwayatPage"

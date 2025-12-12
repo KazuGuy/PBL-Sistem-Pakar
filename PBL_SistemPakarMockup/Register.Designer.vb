@@ -164,7 +164,7 @@ Partial Class Register
         ' Register
         ' 
         AutoScaleDimensions = New SizeF(10F, 25F)
-        AutoScaleMode = AutoScaleMode.Font
+        AutoScaleMode = AutoScaleMode.None
         ClientSize = New Size(825, 612)
         Controls.Add(PictureBox1)
         Controls.Add(ComboBox1)

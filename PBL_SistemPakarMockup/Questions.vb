@@ -1,7 +1,7 @@
 ﻿' Questions.vb
 Public Module Questions
     Public QuestionList As New List(Of String) From {
-        "Apakah kamu tertarik membuat website?",
+        "Best Gundam?",
         "Apakah kamu senang mengatur tampilan halaman (warna, layout, font)?",
         "Apakah kamu tertarik mempelajari HTML, CSS, dan JavaScript?",
         "Apakah kamu senang membuat fitur interaktif pada website?",

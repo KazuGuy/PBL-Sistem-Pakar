@@ -73,5 +73,6 @@ C:\Users\Sheva\source\repos\PBL_SistemPakarMockup\PBL_SistemPakarMockup\bin\Debu
 C:\Users\Sheva\source\repos\PBL_SistemPakarMockup\PBL_SistemPakarMockup\bin\Debug\net9.0-windows\PBL_SistemPakarMockup.pdb
 C:\Users\Sheva\source\repos\PBL_SistemPakarMockup\PBL_SistemPakarMockup\obj\Debug\net9.0-windows\PBL_SistemPakarMockup.genruntimeconfig.cache
 C:\Users\Sheva\source\repos\PBL_SistemPakarMockup\PBL_SistemPakarMockup\obj\Debug\net9.0-windows\ref\PBL_SistemPakarMockup.dll
-C:\Users\Sheva\source\repos\PBL_SistemPakarMockup\PBL_SistemPakarMockup\obj\Debug\net9.0-windows\PBL_SistemPakarMockup.LoginForm1.resources
 C:\Users\Sheva\source\repos\PBL_SistemPakarMockup\PBL_SistemPakarMockup\obj\Debug\net9.0-windows\PBL_SistemPakarMockup.Resources.resources
+C:\Users\Sheva\source\repos\PBL_SistemPakarMockup\PBL_SistemPakarMockup\obj\Debug\net9.0-windows\PBL_SistemPakarMockup.sourcelink.json
+C:\Users\Sheva\source\repos\PBL_SistemPakarMockup\PBL_SistemPakarMockup\obj\Debug\net9.0-windows\PBL_SistemPakarMockup.LupaPassword.resources

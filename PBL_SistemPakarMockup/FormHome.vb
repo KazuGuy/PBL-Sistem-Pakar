@@ -8,32 +8,46 @@
         Me.IsMdiContainer = True
     End Sub
     Private Sub LoadChildForm(child As Form)
-        ' Tutup child sebelumnya (opsional)
-        For Each frm As Form In Me.MdiChildren
-            frm.Close()
-        Next
 
-        child.MdiParent = Me
+        PanelContent.Controls.Clear()
+        PanelContent.Visible = True
+
+        child.TopLevel = False
         child.FormBorderStyle = FormBorderStyle.None
         child.Dock = DockStyle.Fill
+
+        PanelContent.Controls.Add(child)
         child.Show()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    Private Sub ButtonMulai_Click(sender As Object, e As EventArgs) Handles ButtonMulai.Click
         LoadChildForm(New FormQuiz())
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub ButtonUlasan_Click(sender As Object, e As EventArgs) Handles ButtonUlasan.Click
         LoadChildForm(New UlasanPage())
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub ButtonRiwayat_Click(sender As Object, e As EventArgs) Handles ButtonRiwayat.Click
         LoadChildForm(New RiwayatPage())
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles ButtonLogout.Click
+        ClearSession()
+        For Each frm As Form In Me.MdiChildren
+            frm.Close()
+        Next
         Dim loginForm As New Login()
         loginForm.Show()
         Me.Close()
+    End Sub
+
+    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
+    End Sub
+
+    Private Sub PanelContent_Paint(sender As Object, e As PaintEventArgs) Handles PanelContent.Paint
+
     End Sub
 End Class

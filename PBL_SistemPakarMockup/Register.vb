@@ -30,7 +30,8 @@ Public Class Register
         End If
 
         Try
-            Dim conn As SqlConnection = Connection
+            Dim conn As SqlConnection = DbConnect.Connection
+
             Dim checkNimCmd As New SqlCommand("SELECT COUNT(*) FROM [user] WHERE nim = @nim", conn)
             checkNimCmd.Parameters.AddWithValue("@nim", TextBox2.Text.Trim())
             Dim nimExists As Integer = Convert.ToInt32(checkNimCmd.ExecuteScalar())
