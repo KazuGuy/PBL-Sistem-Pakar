@@ -17,7 +17,7 @@ Imports System.Reflection
  Assembly: System.Reflection.AssemblyCompanyAttribute("PBL_SistemPakarMockup"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+adb3a9dfc10f33697ec97384402e43804e3b4ba7"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f103319f5596955bc577f2cb5ae3f73a649f0dd"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("PBL_SistemPakarMockup"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("PBL_SistemPakarMockup"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

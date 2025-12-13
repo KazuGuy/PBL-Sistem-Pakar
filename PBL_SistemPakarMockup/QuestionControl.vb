@@ -20,6 +20,9 @@ Public Class QuestionControl
         Me.Width = 820
         Me.Height = 260
 
+        ' This call is required by the designer.
+        InitializeComponent()  '<--- INI WAJIB ADA!
+        ' Add any initialization after the InitializeComponent() call.
         BuildContainer()
         BuildTitle()
         BuildDivider()
@@ -235,4 +238,7 @@ Public Class QuestionControl
         rb.FlatAppearance.BorderColor = Color.RoyalBlue
     End Sub
 
+    Private Sub QuestionControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

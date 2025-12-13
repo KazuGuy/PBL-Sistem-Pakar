@@ -21,7 +21,6 @@ Partial Class QuestionControl
         ' 
         ' QuestionControl
         ' 
-        AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.None
         Margin = New Padding(4, 5, 4, 5)
         Name = "QuestionControl"

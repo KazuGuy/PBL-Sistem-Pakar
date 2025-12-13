@@ -23,6 +23,7 @@
 
     Private Sub ButtonMulai_Click(sender As Object, e As EventArgs) Handles ButtonMulai.Click
         LoadChildForm(New FormQuiz())
+        'Me.Close() 'niatnya mau ditutup biar ga numpuk formnya
     End Sub
 
     Private Sub ButtonUlasan_Click(sender As Object, e As EventArgs) Handles ButtonUlasan.Click

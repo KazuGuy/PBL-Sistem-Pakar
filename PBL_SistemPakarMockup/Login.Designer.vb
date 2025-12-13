@@ -37,39 +37,39 @@ Partial Class Login
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(523, 114)
+        TextBox1.Location = New Point(523, 137)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(235, 31)
+        TextBox1.Size = New Size(235, 29)
         TextBox1.TabIndex = 4
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(387, 120)
+        Label2.Location = New Point(391, 145)
         Label2.Name = "Label2"
-        Label2.Size = New Size(100, 25)
+        Label2.Size = New Size(83, 21)
         Label2.TabIndex = 5
         Label2.Text = "NIM          :"
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(387, 249)
+        Label3.Location = New Point(391, 229)
         Label3.Name = "Label3"
-        Label3.Size = New Size(101, 25)
+        Label3.Size = New Size(87, 21)
         Label3.TabIndex = 6
         Label3.Text = "Password  :"
         ' 
         ' TextBox2
         ' 
-        TextBox2.Location = New Point(523, 243)
+        TextBox2.Location = New Point(523, 221)
         TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(235, 31)
+        TextBox2.Size = New Size(235, 29)
         TextBox2.TabIndex = 7
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(539, 280)
+        Button1.Location = New Point(554, 274)
         Button1.Name = "Button1"
         Button1.Size = New Size(204, 34)
         Button1.TabIndex = 8
@@ -78,20 +78,20 @@ Partial Class Login
         ' 
         ' Button2
         ' 
-        Button2.Location = New Point(539, 450)
+        Button2.Location = New Point(554, 427)
         Button2.Name = "Button2"
-        Button2.Size = New Size(204, 34)
+        Button2.Size = New Size(162, 45)
         Button2.TabIndex = 9
         Button2.Text = "Login"
         Button2.UseVisualStyleBackColor = True
         ' 
         ' Button3
         ' 
-        Button3.Location = New Point(505, 522)
+        Button3.Location = New Point(492, 490)
         Button3.Name = "Button3"
         Button3.Size = New Size(266, 34)
         Button3.TabIndex = 10
-        Button3.Text = "Belum Memiliki Password?"
+        Button3.Text = "Belum Memiliki Akun?"
         Button3.UseVisualStyleBackColor = True
         ' 
         ' Label1
@@ -100,7 +100,7 @@ Partial Class Login
         Label1.Font = New Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(539, 30)
         Label1.Name = "Label1"
-        Label1.Size = New Size(85, 38)
+        Label1.Size = New Size(78, 36)
         Label1.TabIndex = 11
         Label1.Text = "Login"
         ' 

@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Sheva\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Sheva\\.nuget\\packages",
+      "C:\\Users\\nadiv\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\nadiv\\.nuget\\packages",
       "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {

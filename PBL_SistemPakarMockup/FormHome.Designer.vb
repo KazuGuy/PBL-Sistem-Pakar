@@ -40,66 +40,66 @@ Partial Class FormHome
         MenuStrip1.Items.AddRange(New ToolStripItem() {MenuToolStripMenuItem, RiwayatToolStripMenuItem, UlasanToolStripMenuItem, HelpToolStripMenuItem, AboutToolStripMenuItem})
         MenuStrip1.Location = New Point(0, 0)
         MenuStrip1.Name = "MenuStrip1"
-        MenuStrip1.Size = New Size(1264, 33)
+        MenuStrip1.Size = New Size(1264, 29)
         MenuStrip1.TabIndex = 0
         ' 
         ' MenuToolStripMenuItem
         ' 
         MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
-        MenuToolStripMenuItem.Size = New Size(73, 29)
+        MenuToolStripMenuItem.Size = New Size(64, 26)
         MenuToolStripMenuItem.Text = "Menu"
         ' 
         ' RiwayatToolStripMenuItem
         ' 
         RiwayatToolStripMenuItem.Name = "RiwayatToolStripMenuItem"
-        RiwayatToolStripMenuItem.Size = New Size(89, 29)
+        RiwayatToolStripMenuItem.Size = New Size(79, 26)
         RiwayatToolStripMenuItem.Text = "Riwayat"
         ' 
         ' UlasanToolStripMenuItem
         ' 
         UlasanToolStripMenuItem.Name = "UlasanToolStripMenuItem"
-        UlasanToolStripMenuItem.Size = New Size(80, 29)
+        UlasanToolStripMenuItem.Size = New Size(71, 26)
         UlasanToolStripMenuItem.Text = "Ulasan"
         ' 
         ' HelpToolStripMenuItem
         ' 
         HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        HelpToolStripMenuItem.Size = New Size(65, 29)
+        HelpToolStripMenuItem.Size = New Size(56, 26)
         HelpToolStripMenuItem.Text = "Help"
         ' 
         ' AboutToolStripMenuItem
         ' 
         AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        AboutToolStripMenuItem.Size = New Size(78, 29)
+        AboutToolStripMenuItem.Size = New Size(66, 26)
         AboutToolStripMenuItem.Text = "About"
         ' 
         ' LabelNama
         ' 
         LabelNama.AutoSize = True
-        LabelNama.Font = New Font("Segoe UI", 12.0F)
+        LabelNama.Font = New Font("Segoe UI", 12F)
         LabelNama.Location = New Point(20, 50)
         LabelNama.Name = "LabelNama"
-        LabelNama.Size = New Size(73, 32)
+        LabelNama.Size = New Size(68, 30)
         LabelNama.TabIndex = 7
         LabelNama.Text = "User :"
         ' 
         ' LabelProdi
         ' 
         LabelProdi.AutoSize = True
-        LabelProdi.Font = New Font("Segoe UI", 12.0F)
+        LabelProdi.Font = New Font("Segoe UI", 12F)
         LabelProdi.Location = New Point(20, 90)
         LabelProdi.Name = "LabelProdi"
-        LabelProdi.Size = New Size(81, 32)
+        LabelProdi.Size = New Size(75, 30)
         LabelProdi.TabIndex = 6
         LabelProdi.Text = "Prodi :"
         ' 
         ' LabelWelcome
         ' 
         LabelWelcome.AutoSize = True
-        LabelWelcome.Font = New Font("Segoe UI", 28.0F, FontStyle.Bold)
+        LabelWelcome.Font = New Font("Segoe UI", 28F, FontStyle.Bold)
         LabelWelcome.Location = New Point(380, 130)
         LabelWelcome.Name = "LabelWelcome"
-        LabelWelcome.Size = New Size(449, 74)
+        LabelWelcome.Size = New Size(410, 68)
         LabelWelcome.TabIndex = 5
         LabelWelcome.Text = "Selamat Datang"
         ' 
@@ -139,9 +139,9 @@ Partial Class FormHome
         ' 
         PanelContent.BackColor = Color.WhiteSmoke
         PanelContent.Dock = DockStyle.Fill
-        PanelContent.Location = New Point(0, 33)
+        PanelContent.Location = New Point(0, 29)
         PanelContent.Name = "PanelContent"
-        PanelContent.Size = New Size(1264, 693)
+        PanelContent.Size = New Size(1264, 697)
         PanelContent.TabIndex = 0
         PanelContent.Visible = False
         ' 
