@@ -1919,23 +1919,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nadiv\\.nuget\\packages\\": {},
+    "C:\\Users\\Sheva\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\KULIAH\\SEMESTER 3\\10. PEMROGRAMAN VISUAL\\pbl_sistem_pakar\\PBL-Sistem-Pakar\\PBL_SistemPakarMockup\\PBL_SistemPakarMockup.vbproj",
+      "projectUniqueName": "C:\\Users\\Sheva\\Source\\Repos\\PBL-Sistem-Pakar\\PBL_SistemPakarMockup\\PBL_SistemPakarMockup.vbproj",
       "projectName": "PBL_SistemPakarMockup",
-      "projectPath": "D:\\KULIAH\\SEMESTER 3\\10. PEMROGRAMAN VISUAL\\pbl_sistem_pakar\\PBL-Sistem-Pakar\\PBL_SistemPakarMockup\\PBL_SistemPakarMockup.vbproj",
-      "packagesPath": "C:\\Users\\nadiv\\.nuget\\packages\\",
-      "outputPath": "D:\\KULIAH\\SEMESTER 3\\10. PEMROGRAMAN VISUAL\\pbl_sistem_pakar\\PBL-Sistem-Pakar\\PBL_SistemPakarMockup\\obj\\",
+      "projectPath": "C:\\Users\\Sheva\\Source\\Repos\\PBL-Sistem-Pakar\\PBL_SistemPakarMockup\\PBL_SistemPakarMockup.vbproj",
+      "packagesPath": "C:\\Users\\Sheva\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sheva\\Source\\Repos\\PBL-Sistem-Pakar\\PBL_SistemPakarMockup\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\nadiv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sheva\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2000,7 +2000,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

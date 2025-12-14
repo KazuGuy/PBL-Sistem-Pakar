@@ -142,8 +142,7 @@ Partial Class LupaPassword
         ' 
         ' LupaPassword
         ' 
-        AutoScaleDimensions = New SizeF(10F, 25F)
-        AutoScaleMode = AutoScaleMode.Font
+        AutoScaleMode = AutoScaleMode.None
         ClientSize = New Size(800, 548)
         Controls.Add(TextBox4)
         Controls.Add(Label5)

@@ -29,6 +29,7 @@ Namespace My
             Me.SaveMySettingsOnExit = true
             Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
             Me.HighDpiMode = HighDpiMode.DpiUnaware
+
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _

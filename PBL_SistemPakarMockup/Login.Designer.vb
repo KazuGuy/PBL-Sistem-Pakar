@@ -39,7 +39,7 @@ Partial Class Login
         ' 
         TextBox1.Location = New Point(523, 137)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(235, 29)
+        TextBox1.Size = New Size(235, 31)
         TextBox1.TabIndex = 4
         ' 
         ' Label2
@@ -47,7 +47,7 @@ Partial Class Login
         Label2.AutoSize = True
         Label2.Location = New Point(391, 145)
         Label2.Name = "Label2"
-        Label2.Size = New Size(83, 21)
+        Label2.Size = New Size(100, 25)
         Label2.TabIndex = 5
         Label2.Text = "NIM          :"
         ' 
@@ -56,7 +56,7 @@ Partial Class Login
         Label3.AutoSize = True
         Label3.Location = New Point(391, 229)
         Label3.Name = "Label3"
-        Label3.Size = New Size(87, 21)
+        Label3.Size = New Size(101, 25)
         Label3.TabIndex = 6
         Label3.Text = "Password  :"
         ' 
@@ -64,12 +64,12 @@ Partial Class Login
         ' 
         TextBox2.Location = New Point(523, 221)
         TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(235, 29)
+        TextBox2.Size = New Size(235, 31)
         TextBox2.TabIndex = 7
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(554, 274)
+        Button1.Location = New Point(539, 269)
         Button1.Name = "Button1"
         Button1.Size = New Size(204, 34)
         Button1.TabIndex = 8
@@ -97,10 +97,10 @@ Partial Class Login
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Segoe UI", 14.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(539, 30)
         Label1.Name = "Label1"
-        Label1.Size = New Size(78, 36)
+        Label1.Size = New Size(85, 38)
         Label1.TabIndex = 11
         Label1.Text = "Login"
         ' 

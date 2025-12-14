@@ -40,72 +40,75 @@ Partial Class FormHome
         MenuStrip1.Items.AddRange(New ToolStripItem() {MenuToolStripMenuItem, RiwayatToolStripMenuItem, UlasanToolStripMenuItem, HelpToolStripMenuItem, AboutToolStripMenuItem})
         MenuStrip1.Location = New Point(0, 0)
         MenuStrip1.Name = "MenuStrip1"
-        MenuStrip1.Size = New Size(1264, 29)
+        MenuStrip1.Size = New Size(1294, 33)
         MenuStrip1.TabIndex = 0
         ' 
         ' MenuToolStripMenuItem
         ' 
         MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
-        MenuToolStripMenuItem.Size = New Size(64, 26)
+        MenuToolStripMenuItem.Size = New Size(73, 29)
         MenuToolStripMenuItem.Text = "Menu"
         ' 
         ' RiwayatToolStripMenuItem
         ' 
         RiwayatToolStripMenuItem.Name = "RiwayatToolStripMenuItem"
-        RiwayatToolStripMenuItem.Size = New Size(79, 26)
+        RiwayatToolStripMenuItem.Size = New Size(89, 29)
         RiwayatToolStripMenuItem.Text = "Riwayat"
         ' 
         ' UlasanToolStripMenuItem
         ' 
         UlasanToolStripMenuItem.Name = "UlasanToolStripMenuItem"
-        UlasanToolStripMenuItem.Size = New Size(71, 26)
+        UlasanToolStripMenuItem.Size = New Size(80, 29)
         UlasanToolStripMenuItem.Text = "Ulasan"
         ' 
         ' HelpToolStripMenuItem
         ' 
         HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        HelpToolStripMenuItem.Size = New Size(56, 26)
+        HelpToolStripMenuItem.Size = New Size(65, 29)
         HelpToolStripMenuItem.Text = "Help"
         ' 
         ' AboutToolStripMenuItem
         ' 
         AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        AboutToolStripMenuItem.Size = New Size(66, 26)
+        AboutToolStripMenuItem.Size = New Size(78, 29)
         AboutToolStripMenuItem.Text = "About"
         ' 
         ' LabelNama
         ' 
         LabelNama.AutoSize = True
-        LabelNama.Font = New Font("Segoe UI", 12F)
+        LabelNama.BackColor = Color.White
+        LabelNama.Font = New Font("Segoe UI", 12.0F)
         LabelNama.Location = New Point(20, 50)
         LabelNama.Name = "LabelNama"
-        LabelNama.Size = New Size(68, 30)
+        LabelNama.Size = New Size(73, 32)
         LabelNama.TabIndex = 7
         LabelNama.Text = "User :"
         ' 
         ' LabelProdi
         ' 
         LabelProdi.AutoSize = True
-        LabelProdi.Font = New Font("Segoe UI", 12F)
-        LabelProdi.Location = New Point(20, 90)
+        LabelProdi.BackColor = Color.White
+        LabelProdi.Font = New Font("Segoe UI", 12.0F)
+        LabelProdi.Location = New Point(20, 98)
         LabelProdi.Name = "LabelProdi"
-        LabelProdi.Size = New Size(75, 30)
+        LabelProdi.Size = New Size(81, 32)
         LabelProdi.TabIndex = 6
         LabelProdi.Text = "Prodi :"
         ' 
         ' LabelWelcome
         ' 
-        LabelWelcome.AutoSize = True
-        LabelWelcome.Font = New Font("Segoe UI", 28F, FontStyle.Bold)
-        LabelWelcome.Location = New Point(380, 130)
+        LabelWelcome.BackColor = Color.White
+        LabelWelcome.Font = New Font("Segoe UI", 22.0F, FontStyle.Bold)
+        LabelWelcome.Location = New Point(273, 180)
         LabelWelcome.Name = "LabelWelcome"
-        LabelWelcome.Size = New Size(410, 68)
+        LabelWelcome.Size = New Size(767, 60)
         LabelWelcome.TabIndex = 5
-        LabelWelcome.Text = "Selamat Datang"
+        LabelWelcome.Text = "Selamat Datang di Sistem Pakar TIK"
+        LabelWelcome.TextAlign = ContentAlignment.MiddleCenter
         ' 
         ' ButtonMulai
         ' 
-        ButtonMulai.Location = New Point(530, 260)
+        ButtonMulai.Location = New Point(549, 272)
         ButtonMulai.Name = "ButtonMulai"
         ButtonMulai.Size = New Size(200, 45)
         ButtonMulai.TabIndex = 4
@@ -113,7 +116,7 @@ Partial Class FormHome
         ' 
         ' ButtonUlasan
         ' 
-        ButtonUlasan.Location = New Point(530, 330)
+        ButtonUlasan.Location = New Point(549, 362)
         ButtonUlasan.Name = "ButtonUlasan"
         ButtonUlasan.Size = New Size(200, 45)
         ButtonUlasan.TabIndex = 3
@@ -121,7 +124,7 @@ Partial Class FormHome
         ' 
         ' ButtonRiwayat
         ' 
-        ButtonRiwayat.Location = New Point(530, 400)
+        ButtonRiwayat.Location = New Point(549, 469)
         ButtonRiwayat.Name = "ButtonRiwayat"
         ButtonRiwayat.Size = New Size(200, 45)
         ButtonRiwayat.TabIndex = 2
@@ -129,7 +132,7 @@ Partial Class FormHome
         ' 
         ' ButtonLogout
         ' 
-        ButtonLogout.Location = New Point(530, 470)
+        ButtonLogout.Location = New Point(549, 571)
         ButtonLogout.Name = "ButtonLogout"
         ButtonLogout.Size = New Size(200, 45)
         ButtonLogout.TabIndex = 1
@@ -139,16 +142,17 @@ Partial Class FormHome
         ' 
         PanelContent.BackColor = Color.WhiteSmoke
         PanelContent.Dock = DockStyle.Fill
-        PanelContent.Location = New Point(0, 29)
+        PanelContent.Location = New Point(0, 33)
         PanelContent.Name = "PanelContent"
-        PanelContent.Size = New Size(1264, 697)
+        PanelContent.Size = New Size(1294, 721)
         PanelContent.TabIndex = 0
         PanelContent.Visible = False
         ' 
         ' FormHome
         ' 
         AutoScaleMode = AutoScaleMode.None
-        ClientSize = New Size(1264, 726)
+        BackColor = SystemColors.Control
+        ClientSize = New Size(1294, 754)
         Controls.Add(PanelContent)
         Controls.Add(ButtonLogout)
         Controls.Add(ButtonRiwayat)
@@ -158,6 +162,7 @@ Partial Class FormHome
         Controls.Add(LabelProdi)
         Controls.Add(LabelNama)
         Controls.Add(MenuStrip1)
+        IsMdiContainer = True
         MainMenuStrip = MenuStrip1
         Name = "FormHome"
         Text = "Home"

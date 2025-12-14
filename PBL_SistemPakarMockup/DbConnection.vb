@@ -65,6 +65,7 @@ Module DbConnect
         hasil("Skor_P4") = "0" ' Irisan T1-T2
         hasil("Skor_P5") = "0" ' Irisan T2-T3
         hasil("Skor_P6") = "0" ' Irisan T1-T3
+        hasil("CF_Hasil") = "0"
 
         Try
             Using conn As New SqlConnection(ConnectionString)

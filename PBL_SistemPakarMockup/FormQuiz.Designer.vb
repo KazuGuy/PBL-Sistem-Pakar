@@ -23,9 +23,9 @@ Partial Class FormQuiz
         ' 
         ' FormQuiz
         ' 
-        AutoScaleDimensions = New SizeF(10F, 25F)
+        AutoScaleDimensions = New SizeF(144F, 144F)
         AutoScaleMode = AutoScaleMode.None
-        ClientSize = New Size(900, 600)
+        ClientSize = New Size(1294, 754)
         Name = "FormQuiz"
         Text = "FormQuiz"
         ResumeLayout(False)

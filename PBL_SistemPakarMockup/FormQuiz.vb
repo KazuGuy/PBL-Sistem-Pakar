@@ -23,7 +23,12 @@
     Private Sub FormQuiz_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadPertanyaan()
     End Sub
-
+    Private Sub FormQuiz_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        PositionButtons()
+    End Sub
+    Private Sub FormQuiz_Resize(sender As Object, e As EventArgs) Handles MyBase.Resize
+        PositionButtons()
+    End Sub
     ' =========================================================
     ' LOAD PERTANYAAN DARI DB
     ' =========================================================
@@ -45,39 +50,68 @@
     ' =========================================================
     Private Sub SetupQuizUI()
 
+        ' ---------- Progress ----------
         lblProgress = New Label()
-        lblProgress.Font = New Font("Segoe UI", 14, FontStyle.Bold)
+        lblProgress.Font = New Font("Segoe UI", 12, FontStyle.Bold)
         lblProgress.AutoSize = True
-        lblProgress.Location = New Point(30, 20)
+        lblProgress.Location = New Point(30, 30)
         Me.Controls.Add(lblProgress)
 
-        ' Pastikan QuestionControl mengisi area tengah
+        ' ---------- Question Control ----------
         qCtrl = New QuestionControl()
-        qCtrl.Location = New Point(30, 70)
-        qCtrl.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
-        qCtrl.Width = Me.Width - 60
+        qCtrl.Width = 900
+        qCtrl.Height = 360
+
+        qCtrl.Location = New Point(
+            (Me.ClientSize.Width - qCtrl.Width) \ 2,
+            100
+        )
+
         Me.Controls.Add(qCtrl)
 
+        ' ---------- Buttons ----------
         btnBack = New Button()
         btnBack.Text = "< Back"
         btnBack.Font = New Font("Segoe UI", 10, FontStyle.Bold)
         btnBack.Size = New Size(120, 40)
-        btnBack.Location = New Point(Me.Width - 300, Me.Height - 80)
-        btnBack.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
         btnBack.Enabled = False
         AddHandler btnBack.Click, AddressOf BtnBack_Click
-        Me.Controls.Add(btnBack)
 
         btnNext = New Button()
         btnNext.Text = "Next >"
         btnNext.Font = New Font("Segoe UI", 10, FontStyle.Bold)
         btnNext.Size = New Size(120, 40)
-        btnNext.Location = New Point(Me.Width - 160, Me.Height - 80)
-        btnNext.Anchor = AnchorStyles.Bottom Or AnchorStyles.Right
         AddHandler btnNext.Click, AddressOf BtnNext_Click
+
+        ' ---------- Position Buttons ----------
+
+
+        Me.Controls.Add(btnBack)
         Me.Controls.Add(btnNext)
 
     End Sub
+
+    ' =========================
+    ' POSITION BUTTONS CENTERED
+    ' =========================
+    Private Sub PositionButtons()
+        If qCtrl Is Nothing OrElse Not qCtrl.Visible Then Exit Sub
+
+        Dim spacing As Integer = 20
+        Dim totalWidth As Integer = btnBack.Width + spacing + btnNext.Width
+
+        Dim startX As Integer =
+        qCtrl.Left + (qCtrl.Width - totalWidth) \ 2
+
+        Dim yPos As Integer =
+        qCtrl.Top + qCtrl.Height + 30
+
+        btnBack.Location = New Point(startX, yPos)
+        btnNext.Location = New Point(startX + btnBack.Width + spacing, yPos)
+    End Sub
+
+
+
 
     ' =========================================================
     ' LOAD QUESTION UI
@@ -119,9 +153,10 @@
 
         If currentIndex = totalQuestions - 1 Then
             Dim fr As New FormResult(userAnswers)
-            fr.MdiParent = Me.MdiParent
-            fr.Show()
-            Me.Hide()
+            Dim parentForm = Me.ParentForm
+            If TypeOf parentForm Is FormHome Then
+                CType(parentForm, FormHome).LoadChildForm(fr)
+            End If
             Return
         End If
 

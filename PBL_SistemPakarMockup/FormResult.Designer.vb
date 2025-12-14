@@ -22,6 +22,7 @@ Partial Class FormResult
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormResult))
         lblHasil = New Label()
         lblDeskripsi = New Label()
         lblSkorT1 = New Label()
@@ -37,25 +38,29 @@ Partial Class FormResult
         pbP4 = New ProgressBar()
         pbP5 = New ProgressBar()
         pbP6 = New ProgressBar()
+        btnPrintPreview = New Button()
+        SqlCommand1 = New Microsoft.Data.SqlClient.SqlCommand()
+        PrintPreviewDialog1 = New PrintPreviewDialog()
+        PrintDocument1 = New Printing.PrintDocument()
         SuspendLayout()
         ' 
         ' lblHasil
         ' 
         lblHasil.AutoSize = True
         lblHasil.Font = New Font("Segoe UI Black", 13.8461533F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lblHasil.Location = New Point(564, 43)
+        lblHasil.Location = New Point(25, 36)
         lblHasil.Name = "lblHasil"
-        lblHasil.Size = New Size(93, 35)
+        lblHasil.Size = New Size(105, 38)
         lblHasil.TabIndex = 0
         lblHasil.Text = "Label1"
         ' 
         ' lblDeskripsi
         ' 
         lblDeskripsi.AutoSize = True
-        lblDeskripsi.Font = New Font("Segoe UI", 13.8461533F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblDeskripsi.Location = New Point(564, 122)
+        lblDeskripsi.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblDeskripsi.Location = New Point(36, 134)
         lblDeskripsi.Name = "lblDeskripsi"
-        lblDeskripsi.Size = New Size(87, 35)
+        lblDeskripsi.Size = New Size(63, 25)
         lblDeskripsi.TabIndex = 1
         lblDeskripsi.Text = "Label2"
         ' 
@@ -65,7 +70,7 @@ Partial Class FormResult
         lblSkorT1.Font = New Font("Segoe UI", 11.0769234F)
         lblSkorT1.Location = New Point(49, 236)
         lblSkorT1.Name = "lblSkorT1"
-        lblSkorT1.Size = New Size(69, 28)
+        lblSkorT1.Size = New Size(81, 31)
         lblSkorT1.TabIndex = 2
         lblSkorT1.Text = "Label3"
         ' 
@@ -75,7 +80,7 @@ Partial Class FormResult
         lblSkorT2.Font = New Font("Segoe UI", 11.0769234F)
         lblSkorT2.Location = New Point(371, 236)
         lblSkorT2.Name = "lblSkorT2"
-        lblSkorT2.Size = New Size(69, 28)
+        lblSkorT2.Size = New Size(81, 31)
         lblSkorT2.TabIndex = 3
         lblSkorT2.Text = "Label4"
         ' 
@@ -83,9 +88,9 @@ Partial Class FormResult
         ' 
         lblSkorT3.AutoSize = True
         lblSkorT3.Font = New Font("Segoe UI", 11.0769234F)
-        lblSkorT3.Location = New Point(753, 236)
+        lblSkorT3.Location = New Point(49, 509)
         lblSkorT3.Name = "lblSkorT3"
-        lblSkorT3.Size = New Size(69, 28)
+        lblSkorT3.Size = New Size(81, 31)
         lblSkorT3.TabIndex = 4
         lblSkorT3.Text = "Label5"
         ' 
@@ -93,9 +98,9 @@ Partial Class FormResult
         ' 
         lblSkorP4.AutoSize = True
         lblSkorP4.Font = New Font("Segoe UI", 11.0769234F)
-        lblSkorP4.Location = New Point(112, 384)
+        lblSkorP4.Location = New Point(49, 384)
         lblSkorP4.Name = "lblSkorP4"
-        lblSkorP4.Size = New Size(69, 28)
+        lblSkorP4.Size = New Size(81, 31)
         lblSkorP4.TabIndex = 5
         lblSkorP4.Text = "Label6"
         ' 
@@ -103,9 +108,9 @@ Partial Class FormResult
         ' 
         lblSkorP5.AutoSize = True
         lblSkorP5.Font = New Font("Segoe UI", 11.0769234F)
-        lblSkorP5.Location = New Point(485, 384)
+        lblSkorP5.Location = New Point(371, 384)
         lblSkorP5.Name = "lblSkorP5"
-        lblSkorP5.Size = New Size(69, 28)
+        lblSkorP5.Size = New Size(81, 31)
         lblSkorP5.TabIndex = 6
         lblSkorP5.Text = "Label7"
         ' 
@@ -113,15 +118,15 @@ Partial Class FormResult
         ' 
         lblSkorP6.AutoSize = True
         lblSkorP6.Font = New Font("Segoe UI", 11.0769234F)
-        lblSkorP6.Location = New Point(901, 384)
+        lblSkorP6.Location = New Point(371, 509)
         lblSkorP6.Name = "lblSkorP6"
-        lblSkorP6.Size = New Size(69, 28)
+        lblSkorP6.Size = New Size(81, 31)
         lblSkorP6.TabIndex = 7
         lblSkorP6.Text = "Label8"
         ' 
         ' btnHome
         ' 
-        btnHome.Location = New Point(985, 480)
+        btnHome.Location = New Point(762, 562)
         btnHome.Name = "btnHome"
         btnHome.Size = New Size(151, 51)
         btnHome.TabIndex = 8
@@ -130,50 +135,75 @@ Partial Class FormResult
         ' 
         ' pbT1
         ' 
-        pbT1.Location = New Point(49, 282)
+        pbT1.Location = New Point(49, 302)
         pbT1.Name = "pbT1"
         pbT1.Size = New Size(170, 31)
         pbT1.TabIndex = 9
         ' 
         ' pbT2
         ' 
-        pbT2.Location = New Point(371, 282)
+        pbT2.Location = New Point(371, 302)
         pbT2.Name = "pbT2"
         pbT2.Size = New Size(170, 31)
         pbT2.TabIndex = 10
         ' 
         ' pbT3
         ' 
-        pbT3.Location = New Point(753, 282)
+        pbT3.Location = New Point(49, 582)
         pbT3.Name = "pbT3"
         pbT3.Size = New Size(170, 31)
         pbT3.TabIndex = 11
         ' 
         ' pbP4
         ' 
-        pbP4.Location = New Point(112, 429)
+        pbP4.Location = New Point(49, 451)
         pbP4.Name = "pbP4"
         pbP4.Size = New Size(170, 31)
         pbP4.TabIndex = 12
         ' 
         ' pbP5
         ' 
-        pbP5.Location = New Point(485, 429)
+        pbP5.Location = New Point(371, 451)
         pbP5.Name = "pbP5"
         pbP5.Size = New Size(170, 31)
         pbP5.TabIndex = 13
         ' 
         ' pbP6
         ' 
-        pbP6.Location = New Point(901, 429)
+        pbP6.Location = New Point(371, 582)
         pbP6.Name = "pbP6"
         pbP6.Size = New Size(170, 31)
         pbP6.TabIndex = 14
         ' 
+        ' btnPrintPreview
+        ' 
+        btnPrintPreview.Location = New Point(1010, 562)
+        btnPrintPreview.Name = "btnPrintPreview"
+        btnPrintPreview.Size = New Size(151, 51)
+        btnPrintPreview.TabIndex = 15
+        btnPrintPreview.Text = "Print Docs"
+        btnPrintPreview.UseVisualStyleBackColor = True
+        ' 
+        ' SqlCommand1
+        ' 
+        SqlCommand1.CommandTimeout = 30
+        SqlCommand1.EnableOptimizedParameterBinding = False
+        ' 
+        ' PrintPreviewDialog1
+        ' 
+        PrintPreviewDialog1.AutoScrollMargin = New Size(0, 0)
+        PrintPreviewDialog1.AutoScrollMinSize = New Size(0, 0)
+        PrintPreviewDialog1.ClientSize = New Size(400, 300)
+        PrintPreviewDialog1.Enabled = True
+        PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), Icon)
+        PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        PrintPreviewDialog1.Visible = False
+        ' 
         ' FormResult
         ' 
         AutoScaleMode = AutoScaleMode.None
-        ClientSize = New Size(1185, 575)
+        ClientSize = New Size(1294, 873)
+        Controls.Add(btnPrintPreview)
         Controls.Add(pbP6)
         Controls.Add(pbP5)
         Controls.Add(pbP4)
@@ -210,4 +240,8 @@ Partial Class FormResult
     Friend WithEvents pbP4 As ProgressBar
     Friend WithEvents pbP5 As ProgressBar
     Friend WithEvents pbP6 As ProgressBar
+    Friend WithEvents btnPrintPreview As Button
+    Friend WithEvents SqlCommand1 As Microsoft.Data.SqlClient.SqlCommand
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
 End Class

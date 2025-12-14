@@ -31,10 +31,10 @@ Public Class Login
                 If rd.Read() Then
 
                     ' ====== SIMPAN DATA USER KE SESSION ======
-                    LoggedUserID = rd("idUser")
-                    LoggedUserNIM = rd("nim").ToString()
-                    LoggedUserNama = rd("nama").ToString()
-                    LoggedUserProdi = rd("prodi").ToString()
+                    SessionUser.LoggedUserID = rd("idUser")
+                    SessionUser.LoggedUserNIM = rd("nim").ToString()
+                    SessionUser.LoggedUserNama = rd("nama").ToString()
+                    SessionUser.LoggedUserProdi = rd("prodi").ToString()
 
                     rd.Close()
 
@@ -78,4 +78,11 @@ Public Class Login
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim lupaForm As New LupaPassword()
+        lupaForm.ShowDialog()
+        Me.Close()
+    End Sub
+
 End Class

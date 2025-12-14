@@ -1,8 +1,11 @@
-﻿Imports Microsoft.Data.SqlClient ' <--- 1. INI WAJIB ADA BIAR KENAL SQL
+﻿Imports System.Drawing.Printing
+Imports System.Windows.Forms.DataVisualization.Charting
+Imports Microsoft.Data.SqlClient ' <--- 1. INI WAJIB ADA BIAR KENAL SQL
 
 Public Class FormResult
-
+    Private chartHasil As Chart
     Private userScores As List(Of Integer)
+    Private sudahDisimpan As Boolean = False
 
     ' Constructor menerima skor dari Quiz
     Public Sub New(scores As List(Of Integer))
@@ -19,13 +22,12 @@ Public Class FormResult
         lblDeskripsi.Text = hasil("Deskripsi")
 
         ' 3. Tampilkan 6 Persentase Rinci
-        lblSkorT1.Text = "Software & Data Engineering: " & hasil("Skor_T1") & "%"
-        lblSkorT2.Text = "Network & Infrastructure Engineering: " & hasil("Skor_T2") & "%"
-        lblSkorT3.Text = "Digital Creative & Multimedia: " & hasil("Skor_T3") & "%"
-
-        lblSkorP4.Text = "Cloud Computing & DevOps (Techno-Network): " & hasil("Skor_P4") & "%"
-        lblSkorP5.Text = "Broadcasting & Streaming Technology (Net-Media): " & hasil("Skor_P5") & "%"
-        lblSkorP6.Text = "Interactive Media & Game Development (Techno-Media): " & hasil("Skor_P6") & "%"
+        lblSkorT1.Text = "Software & Data Engineering: " & Environment.NewLine & hasil("Skor_T1") & "%"
+        lblSkorT2.Text = "Network & Infrastructure Engineering: " & Environment.NewLine & hasil("Skor_T2") & "%"
+        lblSkorT3.Text = "Digital Creative & Multimedia: " & Environment.NewLine & hasil("Skor_T3") & "%"
+        lblSkorP4.Text = "Cloud Computing & DevOps (Techno-Network): " & Environment.NewLine & hasil("Skor_P4") & "%"
+        lblSkorP5.Text = "Broadcasting & Streaming Technology (Net-Media): " & Environment.NewLine & hasil("Skor_P5") & "%"
+        lblSkorP6.Text = "Interactive Media & Game Development (Techno-Media): " & Environment.NewLine & hasil("Skor_P6") & "%"
 
         ' 4. Update ProgressBar
         ' (Pastikan ProgressBar pbT1 s/d pbP6 sudah ditarik di Designer ya!)
@@ -37,49 +39,82 @@ Public Class FormResult
         If pbP6 IsNot Nothing Then pbP6.Value = CInt(Math.Round(Convert.ToDouble(hasil("Skor_P6"))))
 
         ' 5. SIMPAN KE DATABASE OTOMATIS
-        Dim valT1 = Convert.ToDouble(hasil("Skor_T1"))
-        Dim valT2 = Convert.ToDouble(hasil("Skor_T2"))
-        Dim valT3 = Convert.ToDouble(hasil("Skor_T3"))
+        If Not sudahDisimpan Then
+            SimpanKeRiwayat(hasil)
+            sudahDisimpan = True
+        End If
 
-        SimpanKeRiwayat(hasil("Judul"), valT1, valT2, valT3)
+        InitPieChart(hasil)
+    End Sub
+
+    Private Sub InitPieChart(hasil As Dictionary(Of String, String))
+
+        ' Hapus chart lama jika ada
+        If chartHasil IsNot Nothing Then
+            Me.Controls.Remove(chartHasil)
+            chartHasil.Dispose()
+        End If
+        Dim chartWidth As Integer = 420
+        Dim chartHeight As Integer = 300
+        chartHasil = New Chart()
+        chartHasil.Size = New Size(chartWidth, chartHeight)
+        chartHasil.Location = New Point(
+    Me.ClientSize.Width - chartWidth - 20,
+    (Me.ClientSize.Height - chartHeight) \ 2)
+        chartHasil.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        chartHasil.BackColor = Color.White
+
+        ' ===== Chart Area =====
+        Dim area As New ChartArea("MainArea")
+        area.BackColor = Color.White
+        area.Position = New ElementPosition(5, 5, 90, 90)
+        chartHasil.ChartAreas.Add(area)
+
+        ' ===== Series (PIE) =====
+        Dim series As New Series("Hasil")
+        series.ChartType = SeriesChartType.Pie
+        series.IsValueShownAsLabel = True
+        series.Label = "#VALX" & vbCrLf & "#PERCENT{P1}"
+        series.Font = New Font("Segoe UI", 9, FontStyle.Bold)
+        series("PieLabelStyle") = "Outside"
+        series("PieLineColor") = "Black"
+
+        series.Points.AddXY("Software & Data", Convert.ToDouble(hasil("Skor_T1")))
+        series.Points.AddXY("Network", Convert.ToDouble(hasil("Skor_T2")))
+        series.Points.AddXY("Creative", Convert.ToDouble(hasil("Skor_T3")))
+        series.Points.AddXY("Cloud / DevOps", Convert.ToDouble(hasil("Skor_P4")))
+        series.Points.AddXY("Broadcast", Convert.ToDouble(hasil("Skor_P5")))
+        series.Points.AddXY("Game / Interactive", Convert.ToDouble(hasil("Skor_P6")))
+        chartHasil.Series.Add(series)
+        Me.Controls.Add(chartHasil)
+
     End Sub
 
     Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
-        ' JANGAN BIKIN NEW FORM, Cukup tutup form ini.
-        ' Nanti form induknya akan menangani navigasi.
         Me.Close()
     End Sub
 
     ' --- PROSEDUR SIMPAN KE DATABASE ---
-    Private Sub SimpanKeRiwayat(judul As String, nilaiT1 As Double, nilaiT2 As Double, nilaiT3 As Double)
+    Private Sub SimpanKeRiwayat(hasil As Dictionary(Of String, String))
         Try
-            ' Cek kalau user belum login
-            If ModuleSession.LoginNIM = "" Then
-                ' ModuleSession.LoginNIM = "TEST001" ' Uncomment buat testing
-                Return
-            End If
-
-            ' 2. PERBAIKAN: Langsung panggil SqlConnection (tanpa SqlClient.)
-            Using conn As New SqlConnection(DbConnect.ConnectionString)
+            Using conn As SqlConnection = DbConnect.Connection
                 conn.Open()
-                Dim query As String = "INSERT INTO riwayat (nim, tanggal, hasil, nilai_T1, nilai_T2, nilai_T3) " &
-                                      "VALUES (@nim, @tgl, @hasil, @nT1, @nT2, @nT3)"
 
-                ' 3. PERBAIKAN: Langsung panggil SqlCommand (tanpa SqlClient.)
-                Using cmd As New SqlCommand(query, conn)
-                    cmd.Parameters.AddWithValue("@nim", ModuleSession.LoginNIM)
-                    cmd.Parameters.AddWithValue("@tgl", DateTime.Now)
-                    cmd.Parameters.AddWithValue("@hasil", judul)
-                    cmd.Parameters.AddWithValue("@nT1", nilaiT1)
-                    cmd.Parameters.AddWithValue("@nT2", nilaiT2)
-                    cmd.Parameters.AddWithValue("@nT3", nilaiT3)
+                Dim cmd As New SqlCommand(
+                    "INSERT INTO riwayat (nim, hasil, cf_hasil, nilai_T1, nilai_T2, nilai_T3) " &
+                    "VALUES (@nim, @hasil, @cf_hasil, @t1, @t2, @t3)", conn)
 
-                    cmd.ExecuteNonQuery()
-                End Using
+                cmd.Parameters.AddWithValue("@nim", SessionUser.LoggedUserNIM)
+                cmd.Parameters.AddWithValue("@hasil", hasil("Judul"))
+                cmd.Parameters.AddWithValue("@cf_hasil", Convert.ToDouble(hasil("CF_Hasil")))
+                cmd.Parameters.AddWithValue("@t1", Convert.ToDouble(hasil("Skor_T1")))
+                cmd.Parameters.AddWithValue("@t2", Convert.ToDouble(hasil("Skor_T2")))
+                cmd.Parameters.AddWithValue("@t3", Convert.ToDouble(hasil("Skor_T3")))
+
+                cmd.ExecuteNonQuery()
             End Using
-
         Catch ex As Exception
-            MessageBox.Show("Gagal menyimpan riwayat: " & ex.Message)
+            MessageBox.Show("Gagal menyimpan hasil ke database: " & ex.Message)
         End Try
     End Sub
 
@@ -87,8 +122,23 @@ Public Class FormResult
         ' Kosong gpp
     End Sub
 
-End Class
+    Private Sub lblDeskripsi_Click(sender As Object, e As EventArgs) Handles lblDeskripsi.Click
 
+    End Sub
+
+    Private Sub btnPrintPreview_Click(sender As Object, e As EventArgs) Handles btnPrintPreview.Click
+        PrintPreviewDialog1.Document = PrintDocument1
+        PrintPreviewDialog1.ShowDialog()
+    End Sub
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        e.Graphics.DrawString("Hasil Test Pakar", New Font("Arial", 14, FontStyle.Bold),
+        Brushes.Black, 250, 50)
+        Dim bmp As New Bitmap(Me.chartHasil.Width, Me.chartHasil.Height)
+        chartHasil.DrawToBitmap(bmp, New Rectangle(0, 0, bmp.Width, bmp.Height))
+        e.Graphics.DrawImage(bmp, 100, 100)
+
+    End Sub
+End Class
 
 
 
