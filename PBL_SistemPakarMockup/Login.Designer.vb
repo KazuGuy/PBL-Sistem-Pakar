@@ -27,7 +27,6 @@ Partial Class Login
         Label2 = New Label()
         Label3 = New Label()
         TextBox2 = New TextBox()
-        Button1 = New Button()
         Button2 = New Button()
         Button3 = New Button()
         Label1 = New Label()
@@ -67,15 +66,6 @@ Partial Class Login
         TextBox2.Size = New Size(235, 31)
         TextBox2.TabIndex = 7
         ' 
-        ' Button1
-        ' 
-        Button1.Location = New Point(539, 269)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(204, 34)
-        Button1.TabIndex = 8
-        Button1.Text = "Lupa Password"
-        Button1.UseVisualStyleBackColor = True
-        ' 
         ' Button2
         ' 
         Button2.Location = New Point(554, 427)
@@ -97,7 +87,7 @@ Partial Class Login
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI", 14.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(539, 30)
         Label1.Name = "Label1"
         Label1.Size = New Size(85, 38)
@@ -124,7 +114,6 @@ Partial Class Login
         Controls.Add(Label1)
         Controls.Add(Button3)
         Controls.Add(Button2)
-        Controls.Add(Button1)
         Controls.Add(TextBox2)
         Controls.Add(Label3)
         Controls.Add(Label2)
@@ -140,7 +129,6 @@ Partial Class Login
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents Label1 As Label

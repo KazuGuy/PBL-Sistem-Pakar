@@ -9,8 +9,9 @@ Public Class UlasanPage
     Private TxtUlasan As TextBox
     Private lblUlasanTitle As Label
     Private btnSimpan As Button
+    Private btnDelete As Button
     Private dgvUlasan As DataGridView
-
+    Private btnBackHome As Button
     Private ratingSelected As Integer = 0
     Private starLabels As New List(Of Label)
     Private editId As Integer = -1
@@ -32,7 +33,7 @@ Public Class UlasanPage
         PanelCard.Location = New Point(50, 20)
         PanelCard.BackColor = Color.LightGray
         PanelCard.BorderStyle = BorderStyle.FixedSingle
-        PanelCard.Padding = New Padding(20)
+        PanelCard.Padding = New Padding(10)
         Me.Controls.Add(PanelCard)
 
         ' Judul
@@ -70,32 +71,56 @@ Public Class UlasanPage
         AddHandler btnSimpan.Click, AddressOf BtnSimpan_Click
         PanelCard.Controls.Add(btnSimpan)
 
+        btnDelete = New Button()
+        btnDelete.Text = "Hapus Ulasan"
+        btnDelete.Font = New Font("Segoe UI", 10, FontStyle.Bold)
+        btnDelete.Size = New Size(150, 40)
+        btnDelete.Location = New Point(btnSimpan.Right + 20, TxtUlasan.Bottom + 20)
+        AddHandler btnDelete.Click, AddressOf btnDelete_Click
+        PanelCard.Controls.Add(btnDelete)
+        btnBackHome = New Button()
+        btnBackHome.Text = "Kembali ke Home"
+        btnBackHome.Font = New Font("Segoe UI", 10, FontStyle.Bold)
+        btnBackHome.Size = New Size(150, 40)
+        btnBackHome.Location = New Point(PanelCard.Padding.Left + 40, PanelCard.Bottom + 20)
+        AddHandler btnBackHome.Click, AddressOf btnBackHome_Click
+        Me.Controls.Add(btnBackHome)
+
         ' DataGridView
         dgvUlasan = New DataGridView()
         dgvUlasan.Size = New Size(PanelCard.Width, 200)
-        dgvUlasan.Location = New Point(PanelCard.Left, PanelCard.Bottom + 20)
+        dgvUlasan.Location = New Point(PanelCard.Right + 20, PanelCard.Top + 20)
         dgvUlasan.ReadOnly = True
         dgvUlasan.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         dgvUlasan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         AddHandler dgvUlasan.CellClick, AddressOf dgvUlasan_CellClick
         Me.Controls.Add(dgvUlasan)
+
+
+
     End Sub
 
     ' ===================== Bintang =====================
     Private Sub CreateStars()
-        Dim StarX As Integer = 20
+        Dim starY As Integer = lblTitle.Bottom + 20
+        Dim starSpacing As Integer = 20
+        Dim starSize As Integer = 32
+        Dim startX As Integer = PanelCard.Padding.Left
+
+        starLabels.Clear()
+
         For i As Integer = 1 To 5
             Dim star As New Label()
             star.Text = "★"
-            star.Font = New Font("Segoe UI", 24)
+            star.Font = New Font("Segoe UI", starSize, FontStyle.Bold)
             star.ForeColor = Color.Gray
             star.Tag = i
             star.Cursor = Cursors.Hand
-            star.Location = New Point(StarX, lblTitle.Bottom + 20)
+            star.AutoSize = True
+            star.Location = New Point(startX + (i - 1) * (starSize + starSpacing), starY)
             AddHandler star.Click, AddressOf Star_Click
             PanelCard.Controls.Add(star)
             starLabels.Add(star)
-            StarX += star.Width + 10
         Next
     End Sub
 
@@ -115,6 +140,11 @@ Public Class UlasanPage
     Private Function GetRatingFromStars() As Integer
         Return ratingSelected
     End Function
+
+
+    Private Sub btnBackHome_Click(sender As Object, e As EventArgs)
+        Me.Close()
+    End Sub
 
     ' ===================== CRUD =====================
     Private Sub BtnSimpan_Click(sender As Object, e As EventArgs)
@@ -185,6 +215,9 @@ Public Class UlasanPage
     End Sub
 
     ' ===================== Delete =====================
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs)
+        DeleteSelected()
+    End Sub
     Public Sub DeleteSelected()
         If dgvUlasan.SelectedRows.Count = 0 Then Return
         Dim id As Integer = CInt(dgvUlasan.SelectedRows(0).Cells("idUlasan").Value)
@@ -203,5 +236,12 @@ Public Class UlasanPage
                 MessageBox.Show("Gagal menghapus ulasan: " & ex.Message)
             End Try
         End If
+    End Sub
+
+    Public Sub UpdateUlasan()
+
+    End Sub
+    Private Sub UlasanPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
